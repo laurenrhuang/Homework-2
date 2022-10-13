@@ -2,12 +2,12 @@
 title: "Homework 2"
 author: "PSTAT 131/231"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     toc: yes
     toc_float: yes
     code_folding: show
+  pdf_document:
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -99,7 +99,7 @@ abalone_recipe <- recipe(age~., data = abalone_train) %>%
   step_scale(all_predictors()) # scale predictors
 ```
 
-Answer: We should not include rings to predict age because age is calculated based on rings (rings + 1.5). If we used rings, it would be like using a scaled version of the outcome as a predictor to help predict the outcome, which doesn't make much sense.
+Answer: We should not include rings to predict age because age is calculated based on rings (rings + 1.5). If we used rings, it would be like using a scaled version of the outcome as a predictor to help predict the outcome, which doesn't make much sense. More importantly, the rings variable and the age variable are collinear, and that would cause problems when we're trying to figure out which predictor variables have what effect on the outcome variable.
 
 
 ### Question 4
